@@ -1,0 +1,1 @@
+console.log("can load files with browserify require")
