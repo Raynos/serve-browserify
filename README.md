@@ -18,7 +18,7 @@ var Router = require("routes-router")
 // Simple static file server
 var ecstatic = require("ecstatic")
 
-var ServeBrowserify = require("../index")
+var ServeBrowserify = require("serve-browserify")
 
 var router = Router()
 
