@@ -1,8 +1,10 @@
 var test = require("tape")
 
-var serve-browserify = require("../index")
+// TODO: tests
 
-test("serve-browserify is a function", function (assert) {
-    assert.equal(typeof serve-browserify, "function")
-    assert.end()
-})
+// var serve-browserify = require("../index")
+
+// test("serve-browserify is a function", function (assert) {
+//     assert.equal(typeof serve-browserify, "function")
+//     assert.end()
+// })

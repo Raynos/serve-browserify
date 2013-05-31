@@ -8,7 +8,11 @@ var ServeBrowserify = require("../index")
 var router = Router()
 
 router.addRoute("/browserify/:appName",
-    ServeBrowserify(path.join(__dirname, "browser")))
+    ServeBrowserify(path.join(__dirname, "browser"), {
+        cache: true,
+        gzip: true,
+        debug: false
+    }))
 router.addRoute("/", ecstatic({
     root: path.join(__dirname, "static"),
     autoIndex: true
