@@ -19,7 +19,7 @@
   "dependencies": {
     "browserify": "~2.14.1",
     "process": "~0.5.1",
-    "node-env": "~0.1.5"
+    "node-env": "~0.1.8"
   },
   "devDependencies": {
     "tape": "~1.0.2",
