@@ -1,6 +1,6 @@
 {
   "name": "serve-browserify",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "HTTP handler for serving browserify bundles",
   "keywords": [],
   "author": "Raynos <raynos2@gmail.com>",
