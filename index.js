@@ -1,10 +1,9 @@
 var resolve = require("resolve")
 var path = require("path")
 var url = require("url")
+var CompiledFiles = require("compiled-files")
 
 var bundle = require("./bundle")
-var CompiledFiles = require("./lib/compiled-files")
-// var getLocation = require("./lib/get-location")
 
 // /js/:appName
 module.exports = CompiledFiles({
