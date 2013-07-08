@@ -1,10 +1,6 @@
 # serve-browserify
 
-<!-- [![build status][1]][2]  -->
-
 [![dependency status][3]][4]
-
-<!-- [![browser support][5]][6] -->
 
 HTTP handler for serving browserify bundles
 
@@ -22,12 +18,15 @@ var ServeBrowserify = require("serve-browserify")
 
 var router = Router()
 
-// ServeBrowserify(rootFolder) returns a http handler
+// ServeBrowserify(opts) returns a http handler
 // to server browserified bundles. The suggestion is to
 // server /browserify/foo as /browser/foo/index.js or
 // /browserify/bar as /browser/bar.js
-router.addRoute("/browserify/:appName",
-    ServeBrowserify(path.join(__dirname, "browser")))
+// also /browserify/x/y as /browser/x/y.js
+router.addRoute("/browserify/*", ServeBrowserify({
+    root: path.join(__dirname, "browser"),
+    base: "/browserify"
+}))
 // static server to serve html page for example
 router.addRoute("/", ecstatic({
     root: path.join(__dirname, "static"),
@@ -43,13 +42,30 @@ server.listen(9024, function () {
 
 ## Documentation
 
-### `ServeJavascript(rootUri, opts?)`
+### `ServeJavascript(opts?)`
+
+```ocaml
+type RequestHandler := (req: HttpRequest, res: HttpResponse)
+
+serve-browserify := ({
+    root: String,
+    base: String?,
+    cache: Boolean?,
+    gzip: Boolean?,
+    cacheControl: String?,
+    debug: Boolean?
+}) => RequestHandler
+```
 
 ServeJavascript returns a function when given a root and opts will
     serve javascript files through browserify
 
 Valid options are:
 
+ - root: The root folder location where it should look for
+    javascript files to browserify & serve
+ - base: The base HTTP path where you are serving your assets
+    from. This is only needed if you want to serve nested files
  - cache: This will cache if enabled, which means every location
     browserify bundle get's cached after initial compilation.
     This also enables ETag's & HTTP caching

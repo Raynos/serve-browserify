@@ -36,8 +36,16 @@ module.exports = CompiledFiles({
     */
     findResource: function findResource(req, res, opts) {
         var pathname = url.parse(req.url).pathname
-        var parts = pathname.split("/")
-        return path.join(opts.root, parts[parts.length - 1])
+        var location
+        if (opts.base) {
+            var rest = pathname.substr(opts.base.length).split("/")
+            location = path.join.apply(null, rest.filter(Boolean))
+        } else {
+            var parts = pathname.split("/")
+            location = parts[parts.length - 1]
+        }
+
+        return path.join(opts.root, location)
     }
 })
 
