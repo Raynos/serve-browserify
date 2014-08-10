@@ -6,9 +6,9 @@ module.exports = bundle
 // return javascript string for the payload!
 // bundle := (String, Callback<String>) => void
 function bundle(location, opts, callback) {
-    var b = browserify()
+    var b = browserify(opts)
     b.add(location)
-    b.bundle(opts, function (err, payload) {
+    b.bundle(function (err, payload) {
         if (err) {
             return callback(err)
         }
