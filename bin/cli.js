@@ -7,6 +7,20 @@ var http = require('http');
 var url = require('url');
 var path = require('path');
 var sendHtml = require('send-data/html');
+var minimist = require('minimist');
+
+var argv = minimist(process.argv.slice(2));
+
+if (argv.h || argv.help) {
+    console.log('serve-browserify \n' +
+        '\n' +
+        'Starts a static serve in the CWD.\n' +
+        'Will serve up any javascript file as browserify.\n' +
+        'Will serve up index.js or index.html on /.\n' +
+        'Serves up other files like other.html on /other.\n' +
+        '\n')
+    process.exit(0);
+}
 
 var ServeBrowserify = require('../index.js');
 

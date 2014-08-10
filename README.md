@@ -78,6 +78,10 @@ Valid options are:
     set, browserify will embed source maps. Disable this in
     production to decrease file size
 
+## Cli
+
+See `serve-browserify --help`
+
 ## Installation
 
 `npm install serve-browserify`
