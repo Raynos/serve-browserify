@@ -29,7 +29,9 @@
     "node-env": "~0.1.8",
     "process": "~0.5.1",
     "resolve": "~0.4.0",
-    "send-data": "^3.3.2"
+    "send-data": "^3.3.2",
+    "watchify": "^1.0.2",
+    "xtend": "^4.0.0"
   },
   "devDependencies": {
     "tape": "~1.0.2",
